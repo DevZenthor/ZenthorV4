@@ -3,12 +3,12 @@ import { LangProvider } from "./context/LangContext";
 import AnimatedBackground from "./components/AnimatedBackground/AnimatedBackground";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
-import Home from "./pages/Home/Home";
+import Home     from "./pages/Home/Home";
 import Projects from "./pages/Projects/Projects";
-import Skills from "./pages/Skills/Skills";
+import Skills   from "./pages/Skills/Skills";
+import Contact  from "./pages/Contact/Contact";
 
-// import Resume  from "./pages/Resume/Resume";
-// import Contact from "./pages/Contact/Contact";
+// import Resume from "./pages/Resume/Resume";
 
 const Placeholder = ({ name }) => (
   <div style={{
@@ -36,8 +36,8 @@ export default function App() {
               <Route path="/"         element={<Home />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/skills"   element={<Skills />} />
-              <Route path="/resume"   element={<Placeholder name="Resume" />} />
-              <Route path="/contact"  element={<Placeholder name="Contact" />} />
+              <Route path="/contact"  element={<Contact />} />
+              <Route path="/resume"   element={<Placeholder name="CV" />} />
               <Route path="*"         element={<Placeholder name="404 — Page introuvable" />} />
             </Routes>
           </main>
