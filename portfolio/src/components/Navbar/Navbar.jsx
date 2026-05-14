@@ -53,7 +53,7 @@ export default function Navbar() {
 
         {/* ── LOGO ── */}
         <NavLink to="/" className="navbar__logo" onClick={() => setMenuOpen(false)}>
-          dev<em>.</em>mgr
+          Zenthor<em>.</em>dev
         </NavLink>
 
         {/* ── LIENS DESKTOP ── */}

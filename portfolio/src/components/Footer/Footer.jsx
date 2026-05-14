@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom";
 import {
   RiGithubLine,
-  RiLinkedinBoxLine,
   RiTwitterXLine,
   RiMailLine,
   RiMapPinLine,
@@ -13,13 +12,13 @@ import {
   RiFileTextLine,
 } from "react-icons/ri";
 import { useLang } from "../../context/LangContext";
+import { CONTACT_INFO } from "../../context/LangContext";
 import "./Footer.css";
 
 const SOCIAL = [
-  { icon: <RiGithubLine />,       href: "https://github.com",    label: "GitHub" },
-  { icon: <RiLinkedinBoxLine />,  href: "https://linkedin.com",  label: "LinkedIn" },
-  { icon: <RiTwitterXLine />,     href: "https://x.com",         label: "X / Twitter" },
-  { icon: <RiMailLine />,         href: "mailto:hello@devmgr.be",label: "Email" },
+  { icon: <RiGithubLine />,   href: CONTACT_INFO.github,  label: "GitHub" },
+  { icon: <RiTwitterXLine />, href: CONTACT_INFO.twitter, label: "X / Twitter" },
+  { icon: <RiMailLine />,     href: `mailto:${CONTACT_INFO.email}`, label: "Email" },
 ];
 
 const QUICK_LINKS = [
@@ -44,7 +43,7 @@ export default function Footer() {
         {/* Colonne 1 — Brand */}
         <div className="footer__col footer__col--brand">
           <NavLink to="/" className="footer__logo">
-            dev<em>.</em>mgr
+            Zenthor<em>.</em>dev
           </NavLink>
           <p className="footer__tagline">{t.footer.tagline}</p>
 
@@ -64,7 +63,7 @@ export default function Footer() {
               <a
                 key={label}
                 href={href}
-                target="_blank"
+                target={href.startsWith("mailto") ? undefined : "_blank"}
                 rel="noreferrer"
                 className="footer__social-link"
                 aria-label={label}
@@ -96,26 +95,26 @@ export default function Footer() {
           <h4 className="footer__col-title">{t.footer.contact}</h4>
           <ul className="footer__contact-list">
             <li>
-              <a href="mailto:hello@devmgr.be" className="footer__contact-link">
+              <a href={`mailto:${CONTACT_INFO.email}`} className="footer__contact-link">
                 <RiMailLine />
-                hello@devmgr.be
+                {CONTACT_INFO.email}
               </a>
             </li>
             <li>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="footer__contact-link">
-                <RiLinkedinBoxLine />
-                /in/devmgr
+              <a href={CONTACT_INFO.twitter} target="_blank" rel="noreferrer" className="footer__contact-link">
+                <RiTwitterXLine />
+                {CONTACT_INFO.twitterHandle}
               </a>
             </li>
             <li>
-              <a href="https://github.com" target="_blank" rel="noreferrer" className="footer__contact-link">
+              <a href={CONTACT_INFO.github} target="_blank" rel="noreferrer" className="footer__contact-link">
                 <RiGithubLine />
-                github.com/devmgr
+                github.com/{CONTACT_INFO.githubHandle}
               </a>
             </li>
           </ul>
 
-          {/* Lang switcher dans le footer aussi */}
+          {/* Lang switcher */}
           <div className="footer__lang">
             <button
               className={`footer__lang-btn ${lang === "fr" ? "active" : ""}`}
@@ -123,7 +122,6 @@ export default function Footer() {
             >
               🇫🇷 FR
             </button>
-            <div className="footer__lang-sep" />
             <button
               className={`footer__lang-btn ${lang === "en" ? "active" : ""}`}
               onClick={() => lang !== "en" && toggle()}
@@ -135,13 +133,13 @@ export default function Footer() {
 
       </div>
 
-      {/* ── LIGNE DE SÉPARATION ── */}
+      {/* ── SÉPARATION ── */}
       <div className="footer__divider" />
 
       {/* ── BANDE INFÉRIEURE ── */}
       <div className="footer__bottom">
         <p className="footer__copy">
-          © {new Date().getFullYear()} dev.mgr —{" "}
+          © {new Date().getFullYear()} Zenthor —{" "}
           {t.footer.rights}
         </p>
 

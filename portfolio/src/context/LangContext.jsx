@@ -4,6 +4,18 @@ import { createContext, useContext, useState } from "react";
    TOUTES LES TRADUCTIONS DU SITE ICI
    Ajoute / modifie les clés selon tes pages
 ───────────────────────────────────────── */
+/* ─────────────────────────────────────────
+   INFOS PERSONNELLES — modifier ici
+───────────────────────────────────────── */
+export const CONTACT_INFO = {
+  email:    "zenthorpro@outlook.com",
+  github:   "https://github.com/DevZenthor",
+  githubHandle: "DevZenthor",
+  twitter:  "https://x.com/zenthor1480",
+  twitterHandle: "@zenthor1480",
+  location: { fr: "Bruxelles, Belgique", en: "Brussels, Belgium" },
+};
+
 const translations = {
   fr: {
     /* Navbar */
@@ -17,7 +29,7 @@ const translations = {
     },
     /* Footer */
     footer: {
-      tagline:    "Développeur Fullstack & Manager",
+      tagline:    "Développeur Fullstack · 1 an d'expérience",
       rights:     "Tous droits réservés.",
       madeWith:   "Fait avec",
       links:      "Liens rapides",
@@ -26,13 +38,13 @@ const translations = {
       location:   "Bruxelles, Belgique",
       available:  "Disponible pour missions",
     },
-    /* Hero (pour plus tard) */
+    /* Hero */
     hero: {
       badge:      "Disponible pour missions",
       title1:     "Développeur",
       title2:     "& Manager",
       title3:     "Fullstack",
-      sub:        "Je conçois des applications React · Node.js performantes et pilote des équipes techniques avec une approche Agile.",
+      sub:        "Développeur Fullstack passionné avec 1 an d'expérience. Je construis des applications React · Node.js modernes et propres.",
       btnProjects:"Voir mes projets",
       btnCV:      "Télécharger CV",
     },
@@ -50,7 +62,7 @@ const translations = {
     },
     /* Footer */
     footer: {
-      tagline:    "Fullstack Developer & Manager",
+      tagline:    "Fullstack Developer · 1 year of experience",
       rights:     "All rights reserved.",
       madeWith:   "Made with",
       links:      "Quick links",
@@ -65,7 +77,7 @@ const translations = {
       title1:     "Developer",
       title2:     "& Manager",
       title3:     "Fullstack",
-      sub:        "I build performant React · Node.js apps and lead technical teams with an Agile mindset.",
+      sub:        "Passionate Fullstack Developer with 1 year of experience. I build modern, clean React · Node.js applications.",
       btnProjects:"View my projects",
       btnCV:      "Download Resume",
     },
