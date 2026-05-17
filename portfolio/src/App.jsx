@@ -7,8 +7,7 @@ import Home     from "./pages/Home/Home";
 import Projects from "./pages/Projects/Projects";
 import Skills   from "./pages/Skills/Skills";
 import Contact  from "./pages/Contact/Contact";
-
-// import Resume from "./pages/Resume/Resume";
+import Resume   from "./pages/Resume/Resume";
 
 const Placeholder = ({ name }) => (
   <div style={{
@@ -21,7 +20,6 @@ const Placeholder = ({ name }) => (
   }}>
     <p style={{ fontFamily: "Syne, sans-serif", fontSize: "2.5rem", color: "#C060FF" }}>🚧</p>
     <p style={{ fontFamily: "Syne, sans-serif", fontSize: "1.4rem", color: "#fff", fontWeight: 700 }}>{name}</p>
-    <p style={{ fontSize: "0.9rem", color: "rgba(255,255,255,0.4)" }}>Page en cours de construction</p>
   </div>
 );
 
@@ -37,8 +35,8 @@ export default function App() {
               <Route path="/projects" element={<Projects />} />
               <Route path="/skills"   element={<Skills />} />
               <Route path="/contact"  element={<Contact />} />
-              <Route path="/resume"   element={<Placeholder name="CV" />} />
-              <Route path="*"         element={<Placeholder name="404 — Page introuvable" />} />
+              <Route path="/resume"   element={<Resume />} />
+              <Route path="*"         element={<Placeholder name="404" />} />
             </Routes>
           </main>
           <Footer />

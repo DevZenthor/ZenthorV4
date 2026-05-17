@@ -16,11 +16,7 @@ import {
 import { useLang, CONTACT_INFO } from "../../context/LangContext";
 import "./Contact.css";
 
-/* ── Remplace YOUR_FORM_ID par ton ID Formspree ──
-   1. Va sur https://formspree.io  → New Form
-   2. Copie l'ID (ex: xpwzgkdb)
-   3. Remplace ci-dessous
-*/
+
 const FORMSPREE_ID = "mykoqwnl";
 
 const SOCIALS = [
@@ -68,7 +64,7 @@ export default function Contact() {
   const info = INFO_ITEMS[lang];
 
   const [form, setForm]     = useState({ name: "", email: "", subject: "", message: "" });
-  const [status, setStatus] = useState("idle"); // idle | sending | sent | error
+  const [status, setStatus] = useState("idle"); 
   const [errors, setErrors] = useState({});
 
   const validate = () => {

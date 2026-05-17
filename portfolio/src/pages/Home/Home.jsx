@@ -113,7 +113,7 @@ const PROJECTS = {
   ],
 };
 
-/* Map icon key → react-icons component */
+
 const PROJECT_ICONS = {
   gamepad:  <RiGamepadLine />,
   live:     <RiLiveLine />,
@@ -140,7 +140,7 @@ const SOCIAL = [
 const MARQUEE = ["React","Vite","Node.js","TypeScript","Bootstrap",
   "PostgreSQL","Docker","Git","Scrum","Management","CI/CD","REST API"];
 
-/* ── Counter animé ── */
+
 function Counter({ to, suffix="" }) {
   const [val, setVal] = useState(0);
   const ref = useRef();
@@ -163,9 +163,7 @@ function Counter({ to, suffix="" }) {
   return <span ref={ref}>{val}{suffix}</span>;
 }
 
-/* ══════════════════════════════════════
-   HOME
-══════════════════════════════════════ */
+
 export default function Home() {
   const { lang, t } = useLang();
   const projects = PROJECTS[lang];
@@ -173,10 +171,8 @@ export default function Home() {
   return (
     <div className="home">
 
-      {/* ══ HERO ══ */}
+     
       <section className="hero">
-
-        {/* LEFT */}
         <div className="hero__left">
 
           <div className="hero__badge">
@@ -228,31 +224,19 @@ export default function Home() {
             ))}
           </div>
         </div>
-
-        {/* RIGHT — photo */}
         <div className="hero__right">
           <div className="hero__photo-wrap">
-
-            {/* Glow blob */}
             <div className="hero__glow" />
-
-            {/* Anneaux orbitaux */}
             <div className="hero__ring hero__ring--1" />
             <div className="hero__ring hero__ring--2" />
-
-            {/* Particules coins */}
             <span className="hero__spark hero__spark--tl" />
             <span className="hero__spark hero__spark--tr" />
             <span className="hero__spark hero__spark--bl" />
             <span className="hero__spark hero__spark--br" />
-
-            {/* Cadre hexagonal */}
             <div className="hero__frame">
               <img src={zenthorImg} alt="Zenthor" className="hero__photo" />
               <div className="hero__frame-border" />
             </div>
-
-            {/* Badges flottants */}
             <div className="hero__float hero__float--tl">
               <RiTerminalBoxLine />
               <span>Fullstack</span>
@@ -271,10 +255,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-
       </section>
-
-      {/* ══ MARQUEE ══ */}
       <div className="marquee-wrap">
         <div className="marquee-track">
           {[...MARQUEE, ...MARQUEE].map((item, i) => (
@@ -284,8 +265,6 @@ export default function Home() {
           ))}
         </div>
       </div>
-
-      {/* ══ STATS ══ */}
       <section className="stats">
         {[
           { num:8,  s:"+", label: lang==="fr" ? "Projets livrés"    : "Projects shipped" },
@@ -299,8 +278,6 @@ export default function Home() {
           </div>
         ))}
       </section>
-
-      {/* ══ PROJETS ══ */}
       <section className="section">
         <div className="sec-head">
           <div>
@@ -315,7 +292,6 @@ export default function Home() {
           {projects.map(p => (
             <div key={p.id} className="proj-card">
               <div className="proj-card__shine" />
-              {/* Top bar */}
               <div className="proj-card__top">
                 <div className="proj-card__left">
                   <span className="proj-card__ico" style={{ color: p.color, borderColor: `${p.color}33`, background: `${p.color}14` }}>
@@ -334,7 +310,6 @@ export default function Home() {
                   )}
                 </div>
               </div>
-              {/* Title + WIP */}
               <div className="proj-card__title-row">
                 <h3 className="proj-card__title">{p.title}</h3>
                 {p.wip && (
@@ -356,8 +331,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
-      {/* ══ SKILLS ══ */}
       <section className="section" style={{paddingTop:0}}>
         <div className="sec-head">
           <div>
@@ -391,8 +364,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
-      {/* ══ CTA BAND ══ */}
       <section className="cta-band">
         <div className="cta-band__glow" />
         <div className="cta-band__content">
@@ -412,7 +383,6 @@ export default function Home() {
           <RiArrowRightLine className="hero__btn-arrow" />
         </NavLink>
       </section>
-
     </div>
   );
 }

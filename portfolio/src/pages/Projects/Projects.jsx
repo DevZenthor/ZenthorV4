@@ -19,7 +19,6 @@ import {
 import { useLang, CONTACT_INFO } from "../../context/LangContext";
 import "./Projects.css";
 
-/* ── Données complètes des projets ── */
 const PROJECTS_DATA = {
   fr: [
     {
@@ -259,8 +258,6 @@ export default function Projects() {
 
   return (
     <div className="projects-page">
-
-      {/* ── HEADER ── */}
       <section className="proj-header">
         <div className="proj-header__back">
           <NavLink to="/" className="back-link">
@@ -278,8 +275,6 @@ export default function Projects() {
               : "Personal projects built with passion — clean code, useful tools."}
           </p>
         </div>
-
-        {/* Stats rapides */}
         <div className="proj-header__stats">
           <div className="proj-qstat">
             <span className="proj-qstat__num">{projects.length}</span>
@@ -297,8 +292,6 @@ export default function Projects() {
           </div>
         </div>
       </section>
-
-      {/* ── FILTRES ── */}
       <section className="proj-filters">
         <div className="filters-row">
           {tags.map(tag => (
@@ -315,8 +308,6 @@ export default function Projects() {
           {filtered.length} {lang === "fr" ? "projet" : "project"}{filtered.length > 1 ? "s" : ""}
         </span>
       </section>
-
-      {/* ── GRILLE ── */}
       <section className="proj-grid-section">
         <div className="proj-grid">
           {filtered.map((p, i) => (
@@ -326,10 +317,7 @@ export default function Projects() {
               style={{ animationDelay: `${i * 0.08}s` }}
               onClick={() => openModal(p)}
             >
-              {/* Shine effect */}
               <div className="pcard__shine" />
-
-              {/* Top */}
               <div className="pcard__top">
                 <div className="pcard__left">
                   <div className="pcard__ico" style={{ color: p.color, borderColor: `${p.color}44`, background: `${p.color}16` }}>
@@ -343,8 +331,6 @@ export default function Projects() {
                   </a>
                 </div>
               </div>
-
-              {/* Title + status */}
               <div className="pcard__titlerow">
                 <h3 className="pcard__title">{p.title}</h3>
                 <span className="pcard__status" style={{ color: p.statusColor, borderColor: `${p.statusColor}40`, background: `${p.statusColor}12` }}>
@@ -352,18 +338,13 @@ export default function Projects() {
                   {p.status}
                 </span>
               </div>
-
               <p className="pcard__short">{p.short}</p>
-
-              {/* Tags */}
               <div className="pcard__tags">
                 {p.tags.slice(0, 3).map(tag => (
                   <span key={tag} className="pcard__tag">{tag}</span>
                 ))}
                 {p.tags.length > 3 && <span className="pcard__tag pcard__tag--more">+{p.tags.length - 3}</span>}
               </div>
-
-              {/* Footer */}
               <div className="pcard__footer">
                 <span className="pcard__stars"><RiStarFill style={{ color: "#FAB432" }} /> {p.stars}</span>
                 <span className="pcard__year"><RiCalendarLine /> {p.year}</span>
@@ -374,7 +355,6 @@ export default function Projects() {
             </div>
           ))}
         </div>
-
         {filtered.length === 0 && (
           <div className="proj-empty">
             <RiCodeBoxLine />
@@ -382,8 +362,6 @@ export default function Projects() {
           </div>
         )}
       </section>
-
-      {/* ── CTA GitHub ── */}
       <section className="proj-github-cta">
         <div className="proj-github-cta__inner">
           <div className="proj-github-cta__glow" />
@@ -397,14 +375,10 @@ export default function Projects() {
           </a>
         </div>
       </section>
-
-      {/* ── MODAL ── */}
       {selected && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal" onClick={e => e.stopPropagation()}>
             <button className="modal__close" onClick={closeModal}><RiCloseLine /></button>
-
-            {/* Header */}
             <div className="modal__header">
               <div className="modal__ico" style={{ color: selected.color, borderColor: `${selected.color}44`, background: `${selected.color}16` }}>
                 {PROJECT_ICONS[selected.icon]}
@@ -422,11 +396,7 @@ export default function Projects() {
             </div>
 
             <div className="modal__divider" />
-
-            {/* Description */}
             <p className="modal__desc">{selected.desc}</p>
-
-            {/* Features */}
             <div className="modal__section">
               <h4 className="modal__section-title">
                 <RiStackLine /> {lang === "fr" ? "Fonctionnalités" : "Features"}
@@ -440,8 +410,6 @@ export default function Projects() {
                 ))}
               </ul>
             </div>
-
-            {/* Tags */}
             <div className="modal__section">
               <h4 className="modal__section-title">
                 <RiCodeBoxLine /> Stack
@@ -454,8 +422,6 @@ export default function Projects() {
                 ))}
               </div>
             </div>
-
-            {/* Actions */}
             <div className="modal__actions">
               <a href={selected.github} target="_blank" rel="noreferrer" className="modal__btn modal__btn--fill">
                 <RiGithubLine />

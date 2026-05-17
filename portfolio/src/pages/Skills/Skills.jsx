@@ -28,16 +28,11 @@ import {
 import { useLang } from "../../context/LangContext";
 import "./Skills.css";
 
-/* ─── CSS icon inline pour CSS3 (pas dispo dans si) ─── */
 const CssIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
     <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.548-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z" />
   </svg>
 );
-
-/* ══════════════════════════════════════
-   DATA
-══════════════════════════════════════ */
 
 const TECH_SKILLS = [
   { icon: <SiJavascript />, name: "JavaScript", pct: 88, color: "#F7DF1E", level: { fr: "Avancé",        en: "Advanced"     } },
@@ -78,9 +73,7 @@ const SOFT_SKILLS = {
 
 const LEARNING = ["TypeScript", "Next.js", "GraphQL", "Unity", "Unreal", "Python"];
 
-/* ══════════════════════════════════════
-   ANIMATED BAR
-══════════════════════════════════════ */
+
 function AnimatedBar({ pct, color, delay = 0 }) {
   const [width, setWidth] = useState(0);
   const ref = useRef();
@@ -113,17 +106,12 @@ function AnimatedBar({ pct, color, delay = 0 }) {
   );
 }
 
-/* ══════════════════════════════════════
-   SKILLS PAGE
-══════════════════════════════════════ */
 export default function Skills() {
   const { lang } = useLang();
   const softs    = SOFT_SKILLS[lang];
 
   return (
     <div className="skills-page">
-
-      {/* ── HEADER ── */}
       <section className="sk-header">
         <div className="sk-header__back">
           <NavLink to="/" className="back-link">
@@ -159,8 +147,6 @@ export default function Skills() {
           </div>
         </div>
       </section>
-
-      {/* ── LANGAGES & FRAMEWORKS ── */}
       <section className="sk-section">
         <div className="sk-section__head">
           <div className="sk-section__icon"><RiCodeBoxLine /></div>
@@ -171,7 +157,6 @@ export default function Skills() {
             </h2>
           </div>
         </div>
-
         <div className="tech-grid">
           {TECH_SKILLS.map((sk, i) => (
             <div key={sk.name} className="tech-card" style={{ animationDelay: `${i * 0.06}s` }}>
@@ -190,8 +175,6 @@ export default function Skills() {
           ))}
         </div>
       </section>
-
-      {/* ── OUTILS ── */}
       <section className="sk-section sk-section--alt">
         <div className="sk-section__head">
           <div className="sk-section__icon"><RiToolsLine /></div>
@@ -218,8 +201,6 @@ export default function Skills() {
           ))}
         </div>
       </section>
-
-      {/* ── SOFT SKILLS ── */}
       <section className="sk-section">
         <div className="sk-section__head">
           <div className="sk-section__icon"><RiTeamLine /></div>
@@ -228,7 +209,6 @@ export default function Skills() {
             <h2 className="sk-section__title">Soft skills</h2>
           </div>
         </div>
-
         <div className="soft-grid">
           {softs.map((s, i) => (
             <div key={i} className="soft-card" style={{ animationDelay: `${i * 0.07}s` }}>
@@ -239,8 +219,6 @@ export default function Skills() {
           ))}
         </div>
       </section>
-
-      {/* ── EN APPRENTISSAGE ── */}
       <section className="sk-section sk-section--alt">
         <div className="sk-section__head">
           <div className="sk-section__icon"><RiLightbulbLine /></div>
@@ -251,7 +229,6 @@ export default function Skills() {
             </h2>
           </div>
         </div>
-
         <div className="learning-list">
           {LEARNING.map((item, i) => (
             <div key={i} className="learning-item" style={{ animationDelay: `${i * 0.08}s` }}>
@@ -264,8 +241,6 @@ export default function Skills() {
           ))}
         </div>
       </section>
-
-      {/* ── CTA ── */}
       <section className="sk-cta">
         <div className="sk-cta__glow" />
         <div className="sk-cta__content">
@@ -295,7 +270,6 @@ export default function Skills() {
           </div>
         </div>
       </section>
-
     </div>
   );
 }
